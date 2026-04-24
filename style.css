@@ -1,10 +1,11 @@
-/* RESET + BASE */
+/* RESET */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* BASE */
 body {
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
   background-color: #f5f7fa;
@@ -12,43 +13,79 @@ body {
   line-height: 1.7;
 }
 
-/* HERO SECTION */
+/* HERO */
 .hero {
-  background: linear-gradient(135deg, #0b3c5d, #1f6fa5);
+  position: relative;
+  background-image: url("hero-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: white;
   text-align: center;
-  padding: 100px 20px;
+  padding: 140px 20px;
+}
+
+/* OVERLAY */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 60, 93, 0.78);
+}
+
+.hero * {
+  position: relative;
+  z-index: 1;
 }
 
 .hero h1 {
-  font-size: 48px;
+  font-size: 52px;
   margin-bottom: 15px;
   letter-spacing: 1px;
 }
 
 .hero p {
   font-size: 20px;
-  max-width: 800px;
+  max-width: 900px;
   margin: auto;
 }
 
-.hero a {
+/* HERO BUTTONS */
+.hero-buttons {
+  margin-top: 35px;
+}
+
+/* BUTTONS */
+.btn {
   display: inline-block;
-  margin: 25px 12px 0;
-  padding: 12px 28px;
-  background-color: white;
-  color: #0b3c5d;
-  text-decoration: none;
+  padding: 14px 34px;
+  margin: 8px;
   border-radius: 6px;
   font-weight: 600;
+  text-decoration: none;
   transition: all 0.3s ease;
 }
 
-.hero a:hover {
-  background-color: #e6eef5;
+.primary-btn {
+  background-color: white;
+  color: #0b3c5d;
 }
 
-/* SECTION CONTAINER */
+.primary-btn:hover {
+  background-color: #e7f1f8;
+}
+
+.secondary-btn {
+  border: 2px solid white;
+  color: white;
+  background: transparent;
+}
+
+.secondary-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* SECTIONS */
 section {
   max-width: 1000px;
   margin: auto;
@@ -57,42 +94,32 @@ section {
 
 /* HEADINGS */
 h2 {
-  font-size: 30px;
-  margin-bottom: 20px;
   color: #0b3c5d;
+  font-size: 30px;
+  margin-bottom: 22px;
   border-left: 6px solid #1f6fa5;
   padding-left: 12px;
 }
 
 h3 {
+  color: #0b3c5d;
   font-size: 22px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
-/* TEXT */
-p {
-  font-size: 16px;
-  margin-bottom: 14px;
-}
-
-/* PROJECT / TIMELINE CARDS */
+/* CARDS */
 .project-card {
   background: white;
   padding: 25px;
   border-radius: 10px;
+  margin-top: 28px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  margin-top: 30px;
-  transition: transform 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-4px);
 }
 
 /* LISTS */
 ul {
-  margin-top: 10px;
   padding-left: 20px;
+  margin-top: 10px;
 }
 
 li {
@@ -120,7 +147,7 @@ footer a:hover {
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .hero h1 {
-    font-size: 36px;
+    font-size: 38px;
   }
 
   .hero p {
