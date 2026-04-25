@@ -2,53 +2,69 @@
   --bg: #ffffff;
   --text: #111;
   --sub: #555;
+  --card: #f4f6f8;
   --accent: #0a66c2;
-  --card: #f9f9f9;
 }
 
 [data-theme="dark"] {
   --bg: #121212;
   --text: #f1f1f1;
   --sub: #aaa;
-  --card: #1d1d1d;
+  --card: #1e1e1e;
 }
 
-html {
-  scroll-behavior: smooth;
+* {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", system-ui, sans-serif;
   background: var(--bg);
   color: var(--text);
+  line-height: 1.7;
 }
 
-/* HERO */
 .hero {
-  padding: 3rem 1.5rem;
-  background: linear-gradient(135deg, #0a66c2, #004182);
+  background: url("hero-bg.jpg") center/cover no-repeat;
   color: white;
+  padding: 4rem 1.5rem;
   text-align: center;
+  position: relative;
 }
 
-.profile-pic {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  border: 4px solid white;
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 30, 60, 0.78);
 }
 
-/* NAV */
+.hero * {
+  position: relative;
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* SECTIONS */
+.logo {
+  font-weight: 700;
+}
+
+.hero-content h1 {
+  font-size: 2.6rem;
+}
+
+.tagline {
+  max-width: 700px;
+  margin: auto;
+}
+
 .section {
-  padding: 4rem 1.5rem;
+  padding: 3.5rem 1.5rem;
   max-width: 1000px;
   margin: auto;
 }
@@ -57,11 +73,6 @@ body {
   background: var(--card);
 }
 
-h2 {
-  margin-bottom: 1rem;
-}
-
-/* BUTTONS */
 .btn {
   padding: 0.7rem 1.4rem;
   border-radius: 6px;
@@ -70,57 +81,43 @@ h2 {
   font-weight: 600;
 }
 
-.btn.primary {
+.primary {
   background: white;
-  color: #004182;
+  color: var(--accent);
 }
 
-.btn.outline {
+.outline {
   border: 2px solid white;
   color: white;
 }
 
-.btn.ghost {
+.ghost {
   color: white;
-  opacity: 0.9;
 }
 
-/* TIMELINE */
-.timeline-item {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.timeline-item img {
-  width: 50px;
-  height: 50px;
-}
-
-/* SKILLS */
 .skills span {
-  display: inline-block;
   background: #e6f0fa;
   color: #004182;
   padding: 0.5rem 0.8rem;
-  margin: 0.3rem;
   border-radius: 20px;
+  margin: 0.3rem;
+  display: inline-block;
 }
 
-/* PROJECTS */
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-.project-card {
+.timeline-item {
   background: var(--card);
-  border-radius: 10px;
-  padding: 1rem;
+  padding: 1.5rem;
+  border-left: 4px solid var(--accent);
+  margin-bottom: 1.5rem;
 }
 
-/* FOOTER */
+.card, .cert-card {
+  background: var(--card);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+
 footer {
   text-align: center;
   padding: 2rem;
